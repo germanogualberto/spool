@@ -1,17 +1,23 @@
 
 #DIR3='./new-lp-scripts'
 DIR3='.'
+COTA=$(cat $DIR3/cota.info)
 
 #exists?
 if [ $1 = '-e' ]
-then
-cat $DIR3/bd
+then	
+	if [ $(grep -c `whoami` bd) -ge 1 ];
+	then
+		echo ok
+	else
+		echo nok
+	fi
 fi
 
 #create
 if [ $1 = '-c' ]
 then
-cat $DIR3/bd
+echo `whoami` $(date '+%b/%Y') 0 0 $COTA >> $DIR3/bd
 fi
 
 #read
@@ -32,4 +38,4 @@ then
 cat $DIR3/bd
 fi
 
-echo ecrug.sh
+#echo ecrug.sh
