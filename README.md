@@ -5,7 +5,7 @@ Spool para impressao. Projeto desenvolvido para a cada de Administração de Sis
 
 --install:
 Executar arquivo inst.sh
-inst.sh [valorCota]
+sudo inst.sh [valorCota]
 
 Default valorCota: 100 paginas
 1 Pagina = 60x60 caracteres = 3600
@@ -20,4 +20,4 @@ Responsavel por mostrar relatórios sobre o uso dos usuários.
 
 Para desfazer as alterações do sistema basta executar:
 
-uninst.sh
+sudo uninst.sh
