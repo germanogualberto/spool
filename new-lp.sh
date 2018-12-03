@@ -8,6 +8,13 @@ if [ "$1" = "-rel" ];
 then
 	$SCRIPTS'rel.sh'
 else
-	$SCRIPTS'gerente-ecru.sh'
-	#lp
+
+	
+	if [ $($SCRIPTS'gerente-ecru.sh') = 'ok' ]
+	then
+		echo executar lp
+		#lp
+	else
+		echo "usuario sem cota suficiente para imprimir"
+	fi
 fi
