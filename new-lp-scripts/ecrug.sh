@@ -2,6 +2,7 @@
 #DIR3='./new-lp-scripts'
 DIR3='.'
 COTA=$(cat $DIR3/cota.info)
+USER=$(whoami)
 
 #exists?
 if [ $1 = '-e' ]
@@ -23,7 +24,7 @@ fi
 #read
 if [ $1 = '-r' ]
 then
-cat $DIR3/bd
+	grep $USER $DIR3/bd | cut -d' ' -f5
 fi
 
 #update
