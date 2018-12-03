@@ -27,10 +27,22 @@ then
 	grep $USER $DIR3/bd | cut -d' ' -f5
 fi
 
+
+remove() {
+	busca=$(whoami)' '$(date '+%b/%Y')
+	grep -v "$busca" $DIR3/bd > bd-tmp
+}
+
 #update
 if [ $1 = '-u' ]
 then
-cat $DIR3/bd
+#remove
+remove
+#create
+echo `whoami` $(date '+%b/%Y') 0 0 $2 >> $DIR3/bd-tmp
+rm -rf $DIR3/bd
+mv $DIR3/bd-tmp $DIR3/bd
+#cat $DIR3/bd
 fi
 
 #getall
