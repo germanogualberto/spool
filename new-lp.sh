@@ -1,1 +1,1 @@
-a
+#abstracao do novo lp

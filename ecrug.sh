@@ -1,1 +1,5 @@
-a
+#exists?
+#create
+#read
+#update
+#getall

@@ -1,1 +1,1 @@
-a
+#desinstala a aplicacao
