@@ -1,1 +1,0 @@
-#gerencia acesso aos dados
