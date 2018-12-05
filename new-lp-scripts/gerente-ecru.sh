@@ -6,6 +6,7 @@ DIR4='./new-lp-scripts'
 
 #$DIR4/$ECRUG -g
 #./$ECRUG -g
+
 #CHAMA=$DIR4/$ECRUG
 CHAMA=./$ECRUG
 
@@ -22,16 +23,25 @@ else
 	echo Usuario criado
 fi
 
+cotaAtual=$($CHAMA -r)
+tamanhoArquivo=10
+#echo $cotaAtual
+#$CHAMA -r
 #se existir, testa se pode imprimir
-if [ $($CHAMA -r) -ge 1 ];
+if [ $cotaAtual -ge 1 ];
 then
 	#pode imprimir
-	#atualiza bd
 	echo pode imprimir
+#	echo $cotaAtual
+	decremento=`expr $cotaAtual - $tamanhoArquivo`
+#	echo $decremento	
+	#atualiza bd
+	$CHAMA -u $decremento
+	
 	echo ok
 else
 	#nao pode imprimir
-	echo nao pode imprimir
+	#echo nao pode imprimir
 	echo nok
 fi
 
