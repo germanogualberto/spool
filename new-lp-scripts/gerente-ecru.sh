@@ -25,7 +25,7 @@ else
 fi
 
 cotaAtual=$($CHAMA -r)
-tamanhoArquivo=10
+tamanhoArquivo=$1
 #echo $cotaAtual 
 #$CHAMA -r
 #se existir, testa se pode imprimir
