@@ -7,42 +7,50 @@ DIR4='./new-lp-scripts'
 #$DIR4/$ECRUG -g
 #./$ECRUG -g
 
-#CHAMA=$DIR4/$ECRUG
-CHAMA=./$ECRUG
+CHAMA=$DIR4/$ECRUG
+#CHAMA=./$ECRUG
 
-$CHAMA -g
+#$CHAMA -g
 
 #verificar se usuario existe
 if [ $($CHAMA -e) = 'ok' ];
 then
-	echo usuario existe
+#	echo usuario existe
+	echo ''
 
 #se nao existir, cria
 else
 	$CHAMA -c
-	echo Usuario criado
+#	echo Usuario criado
 fi
 
 cotaAtual=$($CHAMA -r)
 tamanhoArquivo=10
-#echo $cotaAtual
+#echo $cotaAtual 
 #$CHAMA -r
 #se existir, testa se pode imprimir
 if [ $cotaAtual -ge 1 ];
 then
 	#pode imprimir
-	echo pode imprimir
+#	echo pode imprimir
 #	echo $cotaAtual
-	decremento=`expr $cotaAtual - $tamanhoArquivo`
+	decremento=`expr $cotaAtual - $tamanhoArquivo`;
 #	echo $decremento	
 	#atualiza bd
-	$CHAMA -u $decremento
-	
-	echo ok
+
+	if [ $decremento -lt 0 ];
+	then
+		#echo decrementa proximo mes
+		$CHAMA -ce $decremento
+		$CHAMA -u 0;
+	else
+		$CHAMA -u $decremento
+	fi
+	echo ok;
 else
 	#nao pode imprimir
 	#echo nao pode imprimir
-	echo nok
+	echo nok;
 fi
 
 
