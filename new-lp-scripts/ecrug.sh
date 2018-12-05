@@ -1,6 +1,6 @@
 
-DIR3='./new-lp-scripts'
-#DIR3='.'
+#DIR3='./new-lp-scripts'
+DIR3='.'
 COTA=$(cat $DIR3/cota.info)
 USER=$(whoami)
 
